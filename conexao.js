@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 require('dotenv').config()
-const sequelize = new Sequelize(process.env.BANCO,  process.env.USUARIO,process.env.SENHA,{
+const sequelize = new Sequelize("sql10462048", "sql10462048","cyPQwhSSVK",{
     host:"sql10.freesqldatabase.com",
     dialect:'mysql'
   })
