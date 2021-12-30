@@ -11,7 +11,7 @@ exports.postar = (req,res)=>{
     })
     res.send('produto inserido com sucesso')
    } catch (error) {
-       res.send('falha ao inserir: '+error)
+       res.send('falha ao inserir o produto: '+error)
    }
 }
 
