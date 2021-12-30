@@ -7,6 +7,6 @@ const sequelize = new Sequelize(process.env.BANCO,  process.env.USUARIO,process.
   sequelize.authenticate().then(function(){
       console.log('conectado com sucesso')
   }).catch(function(erro){
-      console.log('falha ao se conectar: '+erro)
+      console.log('falha ao se conectar : '+erro)
   })
 module.exports = sequelize
