@@ -5,7 +5,7 @@ exports.postar = (req,res)=>{
     modelProduto.create({
         nome:req.body.nome,
         preco:req.body.preco,
-        imagem:req.file.filename,
+        imagem:req.body.imagem,
         quantidade:req.body.quantidade,
         descricao:req.body.descricao
     })
