@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
-const conexao = require('../conexao')
-conexao()
+const Sequelize = require('sequelize');
+const sequelize = require('../conexao')
 
-const schema = mongoose.Schema({
-    nome:String,
-    preco:String,
-    imagem:String,
-    quantidade:String,
-    descricao:String
+
+const modelProduto = sequelize.define("celular",{
+    nome:{type:Sequelize.STRING},
+    preco:{type:Sequelize.FLOAT},
+    imagem:{type:Sequelize.STRING},
+    quantidade:{type:Sequelize.INTEGER},
+    descricao:{type:Sequelize.STRING}
 })
 
-const modelProduto = mongoose.model("celulare",schema)
+//modelProduto.sync({froce:true})
 
 module.exports = modelProduto

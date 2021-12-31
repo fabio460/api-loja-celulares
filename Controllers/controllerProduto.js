@@ -16,12 +16,14 @@ exports.postar = (req,res)=>{
 }
 
 exports.listar =async (req,res)=>{
-   const p =await modelProduto.find()
+   const p =await modelProduto.findAll()
    res.send(p)
 }
 exports.deletar = (req,res)=>{
     try {
-      
+        modelProduto.destroy({
+            where:{id:req.body.id}
+        })
         res.send('produto deletado')
     } catch (error) {
         res.send('erro:'+error)
