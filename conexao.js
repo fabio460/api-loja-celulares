@@ -1,8 +1,8 @@
-
+require('dotenv').config()
 module.exports = ()=>{
     
     const mongoose = require('mongoose')
-    mongoose.connect('mongodb+srv://meuBanco:fabio2020@cluster0.w2xad.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
+    mongoose.connect(process.env.CREDENCIAIS,{
         useNewUrlParser:true
     })
     const db = mongoose.connection
