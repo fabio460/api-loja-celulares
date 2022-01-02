@@ -6,7 +6,7 @@ const transporter = nodemeiler.createTransport({
     secure:false,
     auth:{
         user:"fabio.alternativo.silva@gmail.com",
-        pass:"ad102030@"
+        pass:process.env.SenhaEmail
     },
     tls:{
         rejectUnauthorized:false
