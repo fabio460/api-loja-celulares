@@ -10,6 +10,6 @@ const modelProduto = sequelize.define("produto",{
     descricao:{type:Sequelize.STRING}
 })
 
-//modelProduto.sync({force:true})
+// modelProduto.sync({force:true})
 
 module.exports = modelProduto

@@ -3,7 +3,7 @@ const sequelize = require('../conexao');
 const modelProduto = require('./modelProduto');
 
 
-const modelCompra = sequelize.define("celular",{
+const modelCompra = sequelize.define("compra",{
     id_produto:{type:Sequelize.INTEGER},
     id_cliente:{type:Sequelize.INTEGER},
     data:{type:Sequelize.STRING},

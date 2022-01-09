@@ -5,6 +5,7 @@ const controllerCliente = require('./Controllers/controllerCliente')
 const multerConfig = require('./multerConfig')
 const multer = require('multer')
 
+
 //efetuar compra
 rota.post('/compra',multer(multerConfig).single(),controllerCompra.comprar)
 rota.get('/compra',controllerCompra.exibirCompras)
@@ -12,6 +13,7 @@ rota.get('/compra',controllerCompra.exibirCompras)
 //cadastrar cliente
 rota.post('/cliente',multer(multerConfig).single(),controllerCliente.cadastrarCliente)
 rota.get('/cliente',controllerCliente.exibirCliente)
+rota.get('/email/:email',controllerCliente.exibirClientePorEmail)
 
 //produtos
 rota.get('/',controllerProduto.listar)

@@ -7,6 +7,6 @@ const modelCliente = sequelize.define('cliente',{
     senha:{type:Sequelize.STRING}
 })
 
-//modelCliente.sync({froce:true})
+//modelCliente.sync({force:true})
 
 module.exports = modelCliente
