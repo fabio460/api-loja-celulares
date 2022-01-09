@@ -22,7 +22,6 @@ exports.comprar =async (req,res)=>{
              },{
                  where:{id:req.body.id_produto}
              })
-     
              modelCompra.create({
                      id_produto:req.body.id_produto,
                      id_cliente:req.body.id_cliente,
