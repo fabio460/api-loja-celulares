@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 module.exports = ()=>{
-    mongoose.connect(process.env.StringConexaoMongoDb,{
+    mongoose.connect(process.env.STRING_CONEXAO,{
   useNewUrlParser:true,
   useUnifiedTopology:true
 })
