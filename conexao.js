@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('dotenv')
+require('dotenv').config()
 module.exports = ()=>{
     mongoose.connect(process.env.StringConexaoMongoDb,{
   useNewUrlParser:true,
