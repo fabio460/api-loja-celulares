@@ -18,7 +18,7 @@ exports.postar = (req,res)=>{
 
 exports.listar =async (req,res)=>{
    const p =await modelProduto.find()
-   res.send(p[0])
+   res.send(p)
 }
 
 exports.listarPorNome = async (req,res)=>{
