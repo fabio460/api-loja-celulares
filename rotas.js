@@ -1,3 +1,9 @@
+
+const conexao = require('./conexao')
+conexao()
+
+
+
 const rota = require('express').Router()
 const controllerProduto = require('./Controllers/controllerProduto')
 const controllerCompra = require('./Controllers/controllerCompra')

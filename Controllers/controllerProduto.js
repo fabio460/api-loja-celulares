@@ -1,4 +1,4 @@
-const sequelize = require('../conexao')
+
 const modelProduto = require('../Models/modelProduto')
 
 exports.postar = (req,res)=>{
@@ -17,7 +17,7 @@ exports.postar = (req,res)=>{
 }
 
 exports.listar =async (req,res)=>{
-   const p =await sequelize.query("SELECT id,nome,imagem,preco,quantidade,descricao FROM produtos")
+   const p =await modelProduto.find()
    res.send(p[0])
 }
 

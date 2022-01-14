@@ -1,12 +1,13 @@
-const Sequelize = require('sequelize')
-const sequelize = require('../conexao')
+const mongoose = require('mongoose');
 
-const modelCliente = sequelize.define('cliente',{
-    nome:{type:Sequelize.STRING},
-    email:{type:Sequelize.STRING},
-    senha:{type:Sequelize.STRING}
+
+const schema = mongoose.Schema({
+    nome:String,
+    email:String,
+    senha:String,
+   
 })
+const modelCliente = mongoose.model('usuario',schema)
 
-//modelCliente.sync({force:true})
 
 module.exports = modelCliente
