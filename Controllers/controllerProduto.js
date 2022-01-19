@@ -22,8 +22,10 @@ exports.listar =async (req,res)=>{
 }
 
 exports.listarPorNome = async (req,res)=>{
-    //const p =await sequelize.query(`select nome from celulars where nome = Sansung a31`)
-    //res.send(p)
+    const p =await modelProduto.findOne({
+        nome:req.params.nome
+    })
+    res.send(p)
 }
 
 exports.deletar = (req,res)=>{

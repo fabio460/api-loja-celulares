@@ -1,33 +1,43 @@
-const sequelize = require('../conexao')
+
 const modelCliente = require('../Models/modelCliente')
 
 exports.cadastrarCliente =async (req,res)=>{
-    try {
-        const  p = await sequelize.query(`SELECT email FROM clientes WHERE email = "${req.body.email}"`)
-        const Email = req.body.email
-        if(p[0][0].email === Email){
-            return res.status(401).end()
-        }
-        
-    } catch (error) {
-        res.send('cadastrado com sucesso ')
-        modelCliente.create({
-            nome:req.body.nome,
-            email:req.body.email,
-            senha:req.body.senha
+    
+        const  e = await modelCliente.findOne({
+            email:req.body.email
         })
-    }
+        let mensagem = ''
+
+        if(e === null){
+            modelCliente.create({
+                nome:req.body.nome,
+                email:req.body.email,
+                senha:req.body.senha
+            })
+            mensagem ='usuario cadastrado com sucesso'
+        }else{
+            mensagem='cliente ja existe na base de dados'
+        }
+        res.json(mensagem)
 }
 
 exports.exibirCliente =async (req,res)=>{
-   const  p = await modelCliente.findAll()
+   const  p = await modelCliente.find()
    res.send(p)
 }
-exports.exibirClientePorEmail = async (req,res)=>{
-    try {
-        const  p = await sequelize.query(`SELECT id,email FROM clientes WHERE email = "${req.params.email}"`)
-        res.send(p[0] )
-    } catch (error) {
-        res.send(error)
-    }
+
+exports.deletarCliente = async (req,res)=>{
+   modelCliente.findByIdAndDelete(req.params.id,(err)=>{
+       if(err){
+           res.send('erro ao deletar: '+err)
+       }else{
+           res.send('usuario deletado ')
+       }
+   })
+}
+exports.exibirEmail = async (req,res)=>{
+    const p =await modelCliente.findOne({
+        email:req.params.email
+    })
+    res.send(p)
 }

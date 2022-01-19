@@ -19,7 +19,8 @@ rota.get('/compra',controllerCompra.exibirCompras)
 //cadastrar cliente
 rota.post('/cliente',multer(multerConfig).single(),controllerCliente.cadastrarCliente)
 rota.get('/cliente',controllerCliente.exibirCliente)
-rota.get('/email/:email',controllerCliente.exibirClientePorEmail)
+rota.delete('/cliente/:id',controllerCliente.deletarCliente)
+rota.get('/cliente/:email',controllerCliente.exibirEmail)
 
 //produtos
 rota.get('/',controllerProduto.listar)
