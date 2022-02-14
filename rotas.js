@@ -10,6 +10,7 @@ const controllerCompra = require('./Controllers/controllerCompra')
 const controllerCliente = require('./Controllers/controllerCliente')
 const multerConfig = require('./multerConfig')
 const multer = require('multer')
+const verificaJWT = require('./jwt')
 
 
 //efetuar compra
@@ -21,7 +22,7 @@ rota.post('/cliente',multer(multerConfig).single(),controllerCliente.cadastrarCl
 rota.get('/cliente',controllerCliente.exibirCliente)
 rota.delete('/cliente/:id',controllerCliente.deletarCliente)
 rota.get('/cliente/:email',controllerCliente.exibirEmail)
-
+rota.post('/jwt',multer(multerConfig).single(),controllerCliente.autenticarCliente)
 //produtos
 rota.get('/',controllerProduto.listar)
 rota.post('/',multer(multerConfig).single('imagem'),controllerProduto.postar)
